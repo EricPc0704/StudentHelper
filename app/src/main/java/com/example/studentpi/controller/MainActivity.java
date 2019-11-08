@@ -1,18 +1,26 @@
-package com.example.studentpi;
+package com.example.studentpi.controller;
 
 import android.os.Bundle;
 
+import com.example.studentpi.R;
+import com.example.studentpi.model.Bean.User;
+import com.example.studentpi.model.api.ApiWrapper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    ApiWrapper apiWrapper=new ApiWrapper();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +35,28 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+               apiWrapper.testPost("23").safeSubscribe(new Observer<User>() {
+                   @Override
+                   public void onSubscribe(Disposable d) {
+
+                   }
+
+                   @Override
+                   public void onNext(User user) {
+                       Toast.makeText(MainActivity.this,user.getName(),Toast.LENGTH_LONG).show();
+
+                   }
+
+                   @Override
+                   public void onError(Throwable e) {
+                        e.printStackTrace();
+                   }
+
+                   @Override
+                   public void onComplete() {
+                   }
+               });
+
             }
         });
     }
