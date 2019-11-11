@@ -2,9 +2,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.studentpi.controller.MainActivity">
+
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/menu_task"
+        android:enabled="true"
+        android:icon="@mipmap/renwu"
+        android:title="任务" />
+    <item
+        android:id="@+id/menu_mall"
+        android:enabled="true"
+        android:icon="@mipmap/mall"
+        android:title="商城" />
+
+    <item
+        android:id="@+id/menu_my"
+        android:enabled="true"
+        android:icon="@mipmap/wode"
+        android:title="我的" />
+
+
 </menu>
