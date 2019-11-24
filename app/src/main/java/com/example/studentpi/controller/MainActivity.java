@@ -1,34 +1,19 @@
 package com.example.studentpi.controller;
 
-import android.graphics.Color;
-import android.os.Bundle;
 
 import com.example.studentpi.R;
-import com.example.studentpi.model.Bean.User;
-import com.example.studentpi.model.api.ApiWrapper;
 import com.example.studentpi.view.fragment.MallFragment;
 import com.example.studentpi.view.fragment.MyFragment;
 import com.example.studentpi.view.fragment.TaskFragment;
-import com.example.studentpi.view.sources.NavigationBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.tabs.TabLayout;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
-import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
 
 import android.view.View;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +22,7 @@ public class MainActivity extends BaseActivity {
 
     private BottomNavigationView bottomNavigationView;
 
-    private List<Fragment> fragments=new ArrayList<>();
+    private List<Fragment> fragments = new ArrayList<>();
     private FrameLayout frameLayout;
 
 
@@ -49,10 +34,10 @@ public class MainActivity extends BaseActivity {
         frameLayout = findViewById(R.id.frame_layout);
 
 
-        NavigationBar navigationBar = findViewById(R.id.title);
+//        NavigationBar navigationBar = findViewById(R.id.title);
 //        navigationBar.setLeftImageResource(R.mipmap.nav_back);
-        navigationBar.setTitle("学生派");
-        navigationBar.setBackgroundColor(Color.parseColor("#ffffff"));
+//        navigationBar.setTitle("学生派");
+//        navigationBar.setBackgroundColor(Color.parseColor("#ffffff"));
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -71,12 +56,18 @@ public class MainActivity extends BaseActivity {
                 return true;
             }
         });
+
     }
 
     private void setFragmentPosition(int position) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_layout,fragments.get(position));
+        transaction.replace(R.id.frame_layout, fragments.get(position));
         transaction.commitAllowingStateLoss();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     @Override
@@ -84,6 +75,7 @@ public class MainActivity extends BaseActivity {
         fragments.add(new TaskFragment());
         fragments.add(new MallFragment());
         fragments.add(new MyFragment());
+        bottomNavigationView.setSelectedItemId(R.id.menu_task);
 
     }
 

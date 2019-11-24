@@ -7,15 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".controller.MainActivity">
 
-    <com.example.studentpi.view.sources.NavigationBar
-        android:id="@+id/title"
-        android:layout_alignParentTop="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 
     <FrameLayout
+        android:layout_alignParentTop="true"
         android:id="@+id/frame_layout"
-        android:layout_below="@id/title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

@@ -432,9 +432,6 @@ public class NavigationBar extends ViewGroup implements View.OnClickListener {
         return mCenterText;
     }
 
-    /**
-     * 获取NavigationBar的高度，适配生日管家的滑动粘性顶部
-     */
     public static int getBarHeight() {
         return DEFAULT_TITLE_BAR_HEIGHT;
     }
@@ -597,16 +594,7 @@ public class NavigationBar extends ViewGroup implements View.OnClickListener {
         }
     }
 
-    /**
-     * 用于神策埋点H5页面追踪事件(trackViewScreen)，捕捉H5页面实际title
-     * 为了捕捉H5页面的实际title，首先应该将此页面标记为@SensorsDataIgnoreTrackAppViewScreen忽略神策默认的页面采集，在适宜的时候手动调用
-     */
     public interface SetTitleListenerCallback {
-        /**
-         * 如果发现H5页面设置了实际的title，则回调此方法开启页面追踪事件
-         *
-         * @param title
-         */
         void haveTitle(String title);
     }
 

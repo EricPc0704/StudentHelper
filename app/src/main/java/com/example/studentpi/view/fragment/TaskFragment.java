@@ -1,11 +1,13 @@
 package com.example.studentpi.view.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.studentpi.R;
+import com.example.studentpi.view.sources.NavigationBar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.annotation.NonNull;
@@ -24,6 +26,7 @@ public class TaskFragment extends BaseFragment {
     private ViewPager viewPager;
     private TabLayout tabLayout;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -36,6 +39,9 @@ public class TaskFragment extends BaseFragment {
     }
 
     private void initView() {
+        NavigationBar navigationBar=rootView.findViewById(R.id.navigation);
+        navigationBar.setTitle("学生派");
+        navigationBar.setTitleColor(Color.parseColor("#ffffff"));
         tabLayout = rootView.findViewById(R.id.tab_layout);
         viewPager = rootView.findViewById(R.id.view_pager);
         viewPager.setAdapter(new FragmentAdapter(getActivity().getSupportFragmentManager()));

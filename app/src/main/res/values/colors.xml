@@ -8,5 +8,8 @@
     <color name="theme">#03A9F4</color>
     <color name="bottom_navigation_normal">#CCCCCC</color>
     <color name="grey_background">#efeff4</color>
-
+    <color name="gray_btn_bg_color">#D0D0D0</color>
+    <color name="gray_btn_bg_pressed_color">#B6B6B6</color>
+    <color name="blue_btn_bg_color">#AEDEF4</color>
+    <color name="blue_btn_bg_pressed_color">#96BFD2</color>
 </resources>

@@ -3,7 +3,6 @@ package com.example.studentpi.model.api;
 import com.example.studentpi.model.Bean.User;
 import com.example.studentpi.utils.RetrofitUtils;
 
-import java.util.List;
 
 import io.reactivex.Observable;
 

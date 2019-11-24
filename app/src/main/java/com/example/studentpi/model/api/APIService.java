@@ -11,14 +11,10 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-/**
- * Created by Sunflower on 2015/11/4.
- */
 public interface APIService {
     @FormUrlEncoded
     @POST("/tree/testPost")
     Observable<Response<User>> testPost(@Field("id") String id);
-
 
 
 }
